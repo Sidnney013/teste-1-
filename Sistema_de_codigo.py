@@ -1,27 +1,21 @@
-# Sistema de controle de acesso em um escritório
+def controle_de_acesso():
+    cargos_irrestritos = ["gerente", "diretor"]
 
-# Função para verificar o acesso com base no cargo e no dia da semana
-def verificar_acesso(cargo, dia_da_semana):
-    # Definir as regras de acesso para cada cargo
-    if cargo == "gerente":
-        return "Acesso permitido"
-    elif cargo == "analista" e dia_da_semana in ["segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira"]:
-        return "Acesso permitido"
-    elif cargo == "estagiário" e dia_da_semana in ["segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira"]:
-        return "Acesso permitido"
+    dias_uteis = ["segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira"]
+
+    cargo = input("Digite seu cargo: ")
+    dia_da_semana = input("Digite o dia da semana: ")
+
+    if cargo in cargos_irrestritos:
+        print("Acesso permitido")
+    elif cargo == "analista":
+        print("Acesso permitido")
+    elif cargo == "estagiário":
+        if dia_da_semana in dias_uteis:
+            print("Acesso permitido")
+        else:
+            print("Acesso negado")
     else:
-        return "Acesso negado"
+        print("Cargo não reconhecido")
 
-# Testes do programa
-testes = [
-    ("gerente", "segunda-feira"),
-    ("gerente", "sábado"),
-    ("analista", "quarta-feira"),
-    ("analista", "domingo"),
-    ("estagiário", "sexta-feira"),
-    ("estagiário", "sábado")
-]
-
-# Executando os testes
-resultados = [(cargo, dia, verificar_acesso(cargo, dia)) for cargo, dia in testes]
-resultados
+controle_de_acesso()
